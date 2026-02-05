@@ -1,4 +1,4 @@
-# 🌟 AngularJS Portfolio Demo
+# 🌟 Angular Core SPA
 
 A **simple single-page portfolio website** built with **AngularJS**, **ngRoute**, and **Angular Material**. This project demonstrates **routing**, **modular architecture**, and **dynamic data binding** for a personal portfolio.
 
@@ -7,7 +7,6 @@ A **simple single-page portfolio website** built with **AngularJS**, **ngRoute**
 ## 🗂 Project Structure
 
 ```
-angular-js-demo/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml        # GitHub Actions workflow for deployment
@@ -53,29 +52,6 @@ angular.module('cvApp', ['ngRoute', 'ngMaterial'])
       .when('/cv', { templateUrl: 'cv.html', controller: 'CvController', controllerAs: 'cv' })
       .otherwise({ redirectTo: '/' });
   }]);
-```
-
----
-
-## 🏡 Installation & Usage
-
-### Clone the repository
-
-```bash
-git clone https://github.com/ongunakaycom/angular-js-demo.git
-cd angular-js-demo
-```
-
-### Open locally
-
-* Simply open `index.html` in your browser (no server required for this static demo).
-
-### Optional: Run on a local server (recommended for routing support)
-
-```bash
-# Using Python
-python -m http.server 8080
-# Then navigate to http://localhost:8080
 ```
 
 ---
