@@ -1,6 +1,6 @@
 # 🌟 Angular Core SPA
 
-A **simple single-page portfolio website** built with **AngularJS**, **ngRoute**, and **Angular Material**. This project demonstrates **routing**, **modular architecture**, and **dynamic data binding** for a personal portfolio.
+A single-page portfolio application built with AngularJS, ngRoute, and Angular Material. Demonstrates client-side routing across three main views (Home, About, CV), modular controller architecture, and dynamic data binding. Deployed automatically to GitHub Pages via GitHub Actions CI/CD pipeline.
 
 ---
 
