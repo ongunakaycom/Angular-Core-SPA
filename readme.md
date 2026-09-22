@@ -4,6 +4,8 @@ A **simple single-page portfolio website** built with **AngularJS**, **ngRoute**
 
 ---
 
+![alt text](image.png)
+
 ## 🗂 Project Structure
 
 ```
