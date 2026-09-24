@@ -153,68 +153,85 @@
 
   <div class="grid md:grid-cols-2 gap-6">
 
-    <!-- Aya -->
-    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition">
+    <!-- Aya Matchmaker -->
+    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition flex flex-col">
       <p class="text-xs font-mono text-purple-400 uppercase tracking-widest mb-2">AI · LLM · RAG</p>
       <h3 class="text-lg font-bold text-slate-100 mb-2">LLM Matchmaking Agent</h3>
-      <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+      <p class="text-sm text-slate-400 mb-4 leading-relaxed flex-grow">
         LLM-powered agent with retrieval-augmented generation over vector search,
         improving AI response accuracy by 40%. Deployed on Google Cloud with Firebase
         Auth &amp; Hosting, plus a React + Gemini frontend.
       </p>
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2 mb-4">
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Gemini</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">RAG</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Firebase</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">React</span>
       </div>
+      <div class="flex gap-3 pt-3 border-t border-slate-800">
+        <span class="text-xs text-slate-500 italic">Private codebase</span>
+        <a href="https://aya-matchmaker.web.app" target="_blank" rel="noopener" class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition ml-auto">Live demo ↗</a>
+      </div>
     </article>
 
     <!-- StreamNest -->
-    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-500/50 transition">
-      <p class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-2">Cloud · Serverless</p>
+    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-500/50 transition flex flex-col">
+      <p class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-2">Cloud · Serverless · SSR</p>
       <h3 class="text-lg font-bold text-slate-100 mb-2">StreamNest — Streaming Platform</h3>
-      <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+      <p class="text-sm text-slate-400 mb-4 leading-relaxed flex-grow">
         Scalable streaming web app using Angular Universal (SSR), Firebase auth/hosting,
         and a Go (Golang) backend API. Full CI/CD on Google Cloud Run.
       </p>
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2 mb-4">
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Angular</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Go</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Cloud Run</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Firebase</span>
       </div>
+      <div class="flex gap-4 pt-3 border-t border-slate-800">
+        <a href="https://github.com/ongunakaycom/streamnest-fullstack-angular-firebase-ssr-app" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-400 hover:text-slate-200 transition">GitHub ↗</a>
+        <a href="https://gpt-500ef.firebaseapp.com/" target="_blank" rel="noopener" class="text-xs font-semibold text-blue-400 hover:text-blue-300 transition ml-auto">Live demo ↗</a>
+      </div>
     </article>
 
     <!-- Duobingo -->
-    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-emerald-500/50 transition">
+    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-emerald-500/50 transition flex flex-col">
       <p class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-2">Kubernetes · DevOps</p>
       <h3 class="text-lg font-bold text-slate-100 mb-2">Duobingo — Full-Stack Platform</h3>
-      <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+      <p class="text-sm text-slate-400 mb-4 leading-relaxed flex-grow">
         Full-stack learning platform (Vue 3 + Node.js + MongoDB) with a complete CI/CD
         pipeline and containerized deployment on Google Kubernetes Engine.
       </p>
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2 mb-4">
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Vue 3</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Node.js</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">GKE</span>
         <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Docker</span>
       </div>
+      <div class="flex gap-4 pt-3 border-t border-slate-800">
+        <a href="https://github.com/ongunakaycom/Duobingo-is-a-Duolingo-inspired-web-application" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-400 hover:text-slate-200 transition">GitHub ↗</a>
+        <a href="https://duobingo-is-a-duolingo-inspired-web-application.vercel.app/" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition ml-auto">Live demo ↗</a>
+      </div>
     </article>
 
-    <!-- Royal Caribbean -->
-    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-500/50 transition">
-      <p class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-2">Cloud · Payments</p>
-      <h3 class="text-lg font-bold text-slate-100 mb-2">Royal Caribbean — Booking Engine</h3>
-      <p class="text-sm text-slate-400 mb-4 leading-relaxed">
-        Full-stack cruise booking engine with 99.8% uptime on Google Cloud Run.
-        React frontend, multi-currency payments (Visa, Mastercard), SQL backend on Cloud SQL.
+    <!-- Crypto Bot -->
+    <article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition flex flex-col">
+      <p class="text-xs font-mono text-purple-400 uppercase tracking-widest mb-2">AI · LLM · Production</p>
+      <h3 class="text-lg font-bold text-slate-100 mb-2">Crypto Bot — AI-Powered Analyst</h3>
+      <p class="text-sm text-slate-400 mb-4 leading-relaxed flex-grow">
+        Natural-language crypto analyst answering Bitcoin questions with real market data.
+        Computes RSI, trend and support/resistance from 90 days of price history, then lets
+        Gemini explain them in plain language. <span class="text-slate-300">Gemini explains — never computes.</span>
       </p>
-      <div class="flex flex-wrap gap-2">
-        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">React</span>
-        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Cloud Run</span>
-        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Cloud SQL</span>
-        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">CI/CD</span>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Gemini</span>
+        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">Flask</span>
+        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">React 18</span>
+        <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">MongoDB</span>
+      </div>
+      <div class="flex gap-4 pt-3 border-t border-slate-800">
+        <a href="https://github.com/ongunakaycom/crypto-bot-case-study" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-400 hover:text-slate-200 transition">GitHub ↗</a>
+        <a href="https://crypto-bot-frontend-lhne.vercel.app/" target="_blank" rel="noopener" class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition ml-auto">Live demo ↗</a>
       </div>
     </article>
 
