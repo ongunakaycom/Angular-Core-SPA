@@ -1,0 +1,30 @@
+<header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a routerLink="/" class="font-bold text-lg text-slate-100 tracking-tight">
+      Ongun Akay<span class="text-blue-500">.</span>
+    </a>
+    <nav class="flex items-center gap-6">
+      <a routerLink="/" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{ exact: true }" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition">Home</a>
+      <a routerLink="/about" routerLinkActive="text-blue-400" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition">About</a>
+      <a routerLink="/cv" routerLinkActive="text-blue-400" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition">CV</a>
+      <a routerLink="/ai-llm" routerLinkActive="text-blue-400" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition">AI &amp; LLM</a>
+      <a href="mailto:info@ongunakay.com" class="text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="border-t border-slate-800 mt-20">
+  <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+    <div>© 2026 Ongun Akay · Cloud Engineer</div>
+    <div class="flex gap-5">
+      <a href="https://ongunakay.com" target="_blank" rel="noopener" class="hover:text-slate-200 transition">Website</a>
+      <a href="https://github.com/ongunakaycom" target="_blank" rel="noopener" class="hover:text-slate-200 transition">GitHub</a>
+      <a href="https://linkedin.com/in/ongunakay" target="_blank" rel="noopener" class="hover:text-slate-200 transition">LinkedIn</a>
+      <a href="mailto:info@ongunakay.com" class="hover:text-slate-200 transition">Email</a>
+    </div>
+  </div>
+</footer>
