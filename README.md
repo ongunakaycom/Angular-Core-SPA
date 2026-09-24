@@ -195,4 +195,3 @@ Google Cloud · AI/LLM · GKE & Cloud Run
 ## 📄 License
 
 MIT — see [LICENSE](./LICENSE).
-```
