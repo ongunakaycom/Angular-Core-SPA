@@ -10,9 +10,9 @@ architecture, SEO engineering, and CI/CD deployment to GitHub Pages.
 
 ## 🎯 Why this repo exists
 
-This project is a **migration case study**. The original repo was an AngularJS 1.x
-single-page demo (preserved as the tag [`v1-legacy-angularjs`](../../tree/v1-legacy-angularjs)).
-In 2026 it was rebuilt end-to-end to demonstrate:
+This project is a **migration case study**. The repository originally hosted an
+AngularJS 1.x single-page demo. In 2026 it was rebuilt end-to-end — no AngularJS
+remains in the active codebase — to demonstrate:
 
 - Angular 19 standalone components + lazy loading
 - SSR + build-time prerendering for SEO
@@ -75,7 +75,7 @@ time — identical SEO outcome, zero runtime cost, zero infra.
 | SEO | JSON-LD `Person` schema, sitemap.xml, robots.txt, per-route meta |
 | Build | Angular CLI 19 application builder |
 | Deployment | GitHub Actions → GitHub Pages (`upload-pages-artifact` + `deploy-pages`) |
-| Legacy | Original AngularJS 1.x preserved at `v1-legacy-angularjs` |
+| Origin | Rebuilt from a legacy AngularJS 1.x demo (fully replaced) |
 
 ---
 
@@ -173,10 +173,11 @@ Deployment is automatic: push to `main` triggers the GitHub Actions workflow.
 
 ---
 
-## 📚 Legacy
+## 📚 Origin
 
-The original AngularJS 1.x implementation is preserved at the tag
-[`v1-legacy-angularjs`](../../tree/v1-legacy-angularjs). It is not maintained.
+This repository started as an AngularJS 1.x single-page demo. In 2026 it was
+fully rewritten to Angular 19 + SSR. **No AngularJS code remains in the current
+codebase** — the migration was a clean replacement, not a coexistence.
 
 ---
 
