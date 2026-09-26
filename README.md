@@ -1,8 +1,6 @@
 # Angular Core SPA — Cloud Engineer Portfolio
 
-A production portfolio site rebuilt from a legacy AngularJS 1.x demo into a modern
-**Angular 19 + SSR + prerender** application. Demonstrates cloud-native frontend
-architecture, SEO engineering, and CI/CD deployment to GitHub Pages.
+A production portfolio site built with **Angular 19**, **SSR**, and **build-time prerendering** — engineered for SEO, zero-cost hosting, and cloud-native frontend architecture.
 
 **Live:** https://ongunakaycom.github.io/Angular-Core-SPA/
 
@@ -10,18 +8,15 @@ architecture, SEO engineering, and CI/CD deployment to GitHub Pages.
 
 ## 🎯 Why this repo exists
 
-This project is a **migration case study**. The repository originally hosted an
-AngularJS 1.x single-page demo. In 2026 it was rebuilt end-to-end — no AngularJS
-remains in the active codebase — to demonstrate:
+A real-world demonstration of modern Angular engineering pushed to its practical limits:
 
-- Angular 19 standalone components + lazy loading
-- SSR + build-time prerendering for SEO
-- Tailwind CSS v4 with a custom dark theme
-- GitHub Pages deployment via GitHub Actions (official Pages action)
-- Structured data (JSON-LD), sitemap, robots, and per-route metadata
+- **Angular 19** standalone components + route-level lazy loading
+- **SSR + build-time prerendering** for full-content HTML without a Node server
+- **Tailwind CSS v4** with a custom dark theme via `@theme`
+- **Zero-cost CI/CD** — GitHub Actions → GitHub Pages via the official Pages action
+- **Structured SEO** — JSON-LD, sitemap, robots, per-route metadata, SPA fallback
 
-The goal was not just to "make it work" — it was to engineer a modern, crawlable,
-zero-cost static deployment without losing the original URL.
+The goal: ship a crawlable, fast, statically-hosted Angular app that behaves like a server-rendered site — without paying for a server.
 
 ---
 
@@ -44,7 +39,7 @@ zero-cost static deployment without losing the original URL.
                                        │
                             ┌──────────▼──────────┐
                             │   prerender routes  │
-                            │  / /about /cv /ai-llm│
+                            │ / /about /cv /ai-llm│
                             └──────────┬──────────┘
                                        │
                              ┌─────────▼──────────┐
@@ -58,9 +53,7 @@ zero-cost static deployment without losing the original URL.
                              └────────────────────┘
 ```
 
-**Key decision:** GitHub Pages cannot run a Node server, so runtime SSR is replaced
-with **build-time prerendering**. Every route is rendered to static HTML at build
-time — identical SEO outcome, zero runtime cost, zero infra.
+**Key decision:** GitHub Pages cannot run a Node server, so runtime SSR is replaced with **build-time prerendering**. Every route is rendered to static HTML at build time — identical SEO outcome, zero runtime cost, zero infra.
 
 ---
 
@@ -75,7 +68,6 @@ time — identical SEO outcome, zero runtime cost, zero infra.
 | SEO | JSON-LD `Person` schema, sitemap.xml, robots.txt, per-route meta |
 | Build | Angular CLI 19 application builder |
 | Deployment | GitHub Actions → GitHub Pages (`upload-pages-artifact` + `deploy-pages`) |
-| Origin | Rebuilt from a legacy AngularJS 1.x demo (fully replaced) |
 
 ---
 
@@ -85,7 +77,7 @@ time — identical SEO outcome, zero runtime cost, zero infra.
 Angular-Core-SPA/
 ├── .github/workflows/deploy.yml   # GitHub Actions → Pages
 ├── public/
-│   ├── 404.html                   # SPA fallback + legacy hash redirects
+│   ├── 404.html                   # SPA fallback + hash redirects
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── src/
@@ -114,45 +106,31 @@ Angular-Core-SPA/
 
 ## 🧠 Engineering highlights
 
-### 1. AngularJS → Angular 19 migration without breaking the URL
-The site was already indexed by Google at `ongunakaycom.github.io/Angular-Core-SPA/`.
-Rebuilding it required preserving that exact base URL — no redirects, no SEO loss.
-Solution: keep the repo, keep the path, set `baseHref: "/Angular-Core-SPA/"`, and
-provide a hash-URL shim in `index.html` that redirects old `#/about` links to `/about`.
+### 1. Prerender instead of runtime SSR
+GitHub Pages is static. Angular 19 SSR normally runs on a Node server. We use the **build-time prerender** path (`app.routes.server.ts` with `RenderMode.Prerender`) so every route ships as real HTML. Result: Google sees full content without executing JS, and hosting cost stays at zero.
 
-### 2. Prerender instead of runtime SSR
-GitHub Pages is static. Angular 19 SSR normally runs on a Node server. We use the
-**build-time prerender** path (`app.routes.server.ts` with `RenderMode.Prerender`)
-so every route ships as real HTML. Result: Google sees full content without executing
-JS, and hosting cost stays at zero.
+### 2. Route-level metadata
+Each route carries its own `title` and `data.description`. No global meta tag duplication, no runtime meta service needed. Canonical, OG, and JSON-LD are declared once in `index.html`.
 
-### 3. Route-level metadata
-Each route carries its own `title` and `data.description`. No global meta tag
-duplication, no runtime meta service needed. Canonical, OG, and JSON-LD are declared
-once in `index.html`.
+### 3. Lazy loading per page
+Each page is a standalone component loaded via `loadComponent`. Build output shows one chunk per route (`home-component`, `about-component`, `cv-component`, `ai-llm-component`) — the initial bundle stays small and each route loads independently.
 
-### 4. Lazy loading per page
-Each page is a standalone component loaded via `loadComponent`. Build output shows
-one chunk per route (`home-component`, `about-component`, `cv-component`,
-`ai-llm-component`) — meaning the initial bundle stays small and each route loads
-independently.
+### 4. Stable base URL
+The site is served from `ongunakaycom.github.io/Angular-Core-SPA/`. Setting `baseHref: "/Angular-Core-SPA/"` plus a hash-URL shim in `index.html` keeps deep links and `#/about`-style URLs resolving correctly on the static host.
 
-### 5. GitHub Actions deployment
-Uses GitHub's official Pages actions (`upload-pages-artifact` + `deploy-pages`),
-with a `Verify prerendered output` step that fails the build if any prerendered
-route is missing. This prevents broken deploys from reaching production.
+### 5. Verified deploys
+GitHub Actions uses the official Pages actions (`upload-pages-artifact` + `deploy-pages`), with a **Verify prerendered output** step that fails the build if any prerendered route is missing — preventing broken deploys from reaching production.
 
 ---
 
 ## 🔍 SEO engineering
 
-- **JSON-LD `Person` schema** in `index.html` — Google reads `jobTitle: "Cloud Engineer"`,
-  `knowsAbout`, and `sameAs` links.
+- **JSON-LD `Person` schema** in `index.html` — Google reads `jobTitle: "Cloud Engineer"`, `knowsAbout`, and `sameAs` links.
 - **Per-route `<title>` and `<meta description>`** declared in `app.routes.ts`.
 - **`sitemap.xml`** listing all 4 routes with priorities.
 - **`robots.txt`** pointing to the sitemap.
 - **`404.html`** SPA fallback that restores the requested URL and routes client-side.
-- **Legacy hash URL redirect** (`#/about` → `/about`) to preserve old inbound links.
+- **Hash URL redirect** (`#/about` → `/about`) to keep deep links working.
 
 ---
 
@@ -170,14 +148,6 @@ npm run build      # produces dist/angular-core-spa/browser/ with prerendered ro
 ```
 
 Deployment is automatic: push to `main` triggers the GitHub Actions workflow.
-
----
-
-## 📚 Origin
-
-This repository started as an AngularJS 1.x single-page demo. In 2026 it was
-fully rewritten to Angular 19 + SSR. **No AngularJS code remains in the current
-codebase** — the migration was a clean replacement, not a coexistence.
 
 ---
 
