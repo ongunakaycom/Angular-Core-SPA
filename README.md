@@ -1,147 +1,109 @@
-# Angular Core SPA — Cloud Engineer Portfolio
+# ☁️ Angular Core SPA — Cloud Engineer Portfolio
 
-A production portfolio site built with **Angular 19**, **SSR**, and **build-time prerendering** — engineered for SEO, zero-cost hosting, and cloud-native frontend architecture.
+**A production-grade portfolio built with Angular 19, SSR, and build-time prerendering.** 
+*Engineered for SEO, zero-cost hosting, and cloud-native frontend architecture.*
 
-**Live:** https://ongunakaycom.github.io/Angular-Core-SPA/
+[![Live Demo](https://img.shields.io/badge/Live_Demo-ongunakaycom.github.io-blue?style=for-the-badge&logo=github)](https://ongunakaycom.github.io/Angular-Core-SPA/)
+[![Angular](https://img.shields.io/badge/Angular-19-DD0031?style=for-the-badge&logo=angular)](https://angular.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub_Pages-222?style=for-the-badge&logo=githubactions)](https://github.com/ongunakaycom/Angular-Core-SPA/actions)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](./LICENSE)
+
+</div>
 
 ---
 
-## 🎯 Why this repo exists
+## 🎯 Executive Summary
 
-A real-world demonstration of modern Angular engineering pushed to its practical limits:
+A real-world demonstration of modern Angular engineering pushed to its practical limits. The goal: ship a crawlable, fast, statically-hosted Angular app that behaves like a server-rendered site — **without paying for a server.**
 
-- **Angular 19** standalone components + route-level lazy loading
-- **SSR + build-time prerendering** for full-content HTML without a Node server
-- **Tailwind CSS v4** with a custom dark theme via `@theme`
-- **Zero-cost CI/CD** — GitHub Actions → GitHub Pages via the official Pages action
-- **Structured SEO** — JSON-LD, sitemap, robots, per-route metadata, SPA fallback
-
-The goal: ship a crawlable, fast, statically-hosted Angular app that behaves like a server-rendered site — without paying for a server.
+**Key Achievements:**
+- 🏗 **Angular 19** standalone components + route-level lazy loading.
+- ⚡ **SSR + build-time prerendering** for full-content HTML.
+- 🎨 **Tailwind CSS v4** with custom dark theme (`@theme`).
+- 🚀 **Zero-cost CI/CD** — GitHub Actions → GitHub Pages.
+- 🔍 **Structured SEO** — JSON-LD, sitemap, per-route metadata.
 
 ---
 
 ## 🏗 Architecture
 
-```
-                        ┌───────────────────────────────┐
-                        │        Angular 19 App         │
-                        │   (standalone + lazy routes)  │
-                        └───────────────┬───────────────┘
-                                        │
-                        ┌───────────────┴───────────────┐
-                        │                               │
-                 ┌──────▼──────┐                ┌───────▼────────┐
-                 │   Browser   │                │  Server (SSR)  │
-                 │   bundle    │                │  main.server   │
-                 └──────┬──────┘                └───────┬────────┘
-                        │                               │
-                        └──────────────┬────────────────┘
-                                       │
-                            ┌──────────▼──────────┐
-                            │   prerender routes  │
-                            │ / /about /cv /ai-llm│
-                            └──────────┬──────────┘
-                                       │
-                             ┌─────────▼──────────┐
-                             │  dist/*/browser/   │
-                             │  static HTML + JS  │
-                             └─────────┬──────────┘
-                                       │
-                             ┌─────────▼──────────┐
-                             │   GitHub Pages     │
-                             │   (static host)    │
-                             └────────────────────┘
-```
-
-**Key decision:** GitHub Pages cannot run a Node server, so runtime SSR is replaced with **build-time prerendering**. Every route is rendered to static HTML at build time — identical SEO outcome, zero runtime cost, zero infra.
-
----
-
-## ⚙️ Tech stack
-
-| Layer | Technology |
-|---|---|
-| Framework | Angular 19 (standalone components, lazy routes) |
-| Rendering | SSR entry + build-time prerender (`app.routes.server.ts`) |
-| Styling | Tailwind CSS v4 + custom theme (`@theme`) |
-| Routing | Angular Router with route-level `title` + `data` |
-| SEO | JSON-LD `Person` schema, sitemap.xml, robots.txt, per-route meta |
-| Build | Angular CLI 19 application builder |
-| Deployment | GitHub Actions → GitHub Pages (`upload-pages-artifact` + `deploy-pages`) |
-
----
-
-## 🗂 Project structure
-
-```
-Angular-Core-SPA/
-├── .github/workflows/deploy.yml   # GitHub Actions → Pages
-├── public/
-│   ├── 404.html                   # SPA fallback + hash redirects
-│   ├── robots.txt
-│   └── sitemap.xml
-├── src/
-│   ├── app/
-│   │   ├── pages/
-│   │   │   ├── home/              # Cloud Engineer hero + projects
-│   │   │   ├── about/
-│   │   │   ├── cv/
-│   │   │   └── ai-llm/            # AI & LLM work
-│   │   ├── app.component.*        # Header + footer shell
-│   │   ├── app.config.ts
-│   │   ├── app.config.server.ts
-│   │   ├── app.routes.ts          # 4 lazy routes
-│   │   └── app.routes.server.ts   # Prerender rules
-│   ├── index.html                 # JSON-LD + meta + redirect shim
-│   ├── main.ts
-│   ├── main.server.ts
-│   ├── server.ts
-│   └── styles.css                 # Tailwind + @theme
-├── angular.json                   # baseHref + prerender config
-├── tsconfig.json
-└── package.json
+```text
+┌────────────────────────────────────────────────────────┐
+│                     Angular 19 App                     │
+│              (standalone + lazy routes)                │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+            ┌──────────────┴──────────────┐
+            │                             │
+     ┌──────▼──────┐               ┌──────▼──────┐
+     │   Browser   │               │  Server     │
+     │   bundle    │               │  (SSR)      │
+     └──────┬──────┘               └──────┬──────┘
+            │                             │
+            └──────────────┬──────────────┘
+                           │
+                ┌──────────▼──────────┐
+                │   prerender routes  │
+                │ / /about /cv /ai-llm│
+                └──────────┬──────────┘
+                           │
+                ┌──────────▼──────────┐
+                │  dist/*/browser/    │
+                │  static HTML + JS   │
+                └──────────┬──────────┘
+                           │
+                ┌──────────▼──────────┐
+                │    GitHub Pages     │
+                │    (static host)    │
+                └─────────────────────┘
 ```
 
----
-
-## 🧠 Engineering highlights
-
-### 1. Prerender instead of runtime SSR
-GitHub Pages is static. Angular 19 SSR normally runs on a Node server. We use the **build-time prerender** path (`app.routes.server.ts` with `RenderMode.Prerender`) so every route ships as real HTML. Result: Google sees full content without executing JS, and hosting cost stays at zero.
-
-### 2. Route-level metadata
-Each route carries its own `title` and `data.description`. No global meta tag duplication, no runtime meta service needed. Canonical, OG, and JSON-LD are declared once in `index.html`.
-
-### 3. Lazy loading per page
-Each page is a standalone component loaded via `loadComponent`. Build output shows one chunk per route (`home-component`, `about-component`, `cv-component`, `ai-llm-component`) — the initial bundle stays small and each route loads independently.
-
-### 4. Stable base URL
-The site is served from `ongunakaycom.github.io/Angular-Core-SPA/`. Setting `baseHref: "/Angular-Core-SPA/"` plus a hash-URL shim in `index.html` keeps deep links and `#/about`-style URLs resolving correctly on the static host.
-
-### 5. Verified deploys
-GitHub Actions uses the official Pages actions (`upload-pages-artifact` + `deploy-pages`), with a **Verify prerendered output** step that fails the build if any prerendered route is missing — preventing broken deploys from reaching production.
+**Engineering Decision:** GitHub Pages cannot run a Node server. Runtime SSR is replaced with **build-time prerendering**. Every route renders to static HTML at build time — identical SEO outcome, zero runtime cost, zero infra.
 
 ---
 
-## 🔍 SEO engineering
+## ⚙️ Tech Stack
 
-- **JSON-LD `Person` schema** in `index.html` — Google reads `jobTitle: "Cloud Engineer"`, `knowsAbout`, and `sameAs` links.
-- **Per-route `<title>` and `<meta description>`** declared in `app.routes.ts`.
-- **`sitemap.xml`** listing all 4 routes with priorities.
-- **`robots.txt`** pointing to the sitemap.
-- **`404.html`** SPA fallback that restores the requested URL and routes client-side.
-- **Hash URL redirect** (`#/about` → `/about`) to keep deep links working.
+| Layer | Technology | Rationale |
+|-------|------------|-----------|
+| **Framework** | Angular 19 | Modern, scalable, standalone components. |
+| **Rendering** | SSR + Prerender | SEO benefits without server costs. |
+| **Styling** | Tailwind CSS v4 | Utility-first, fast UI development. |
+| **Routing** | Angular Router | Route-level metadata and lazy loading. |
+| **SEO** | JSON-LD, sitemap.xml | Maximized crawlability. |
+| **Deployment** | GitHub Pages | Zero-cost, globally distributed static hosting. |
 
 ---
 
-## 🚀 Local development
+## 🧠 Engineering Highlights
+
+### 1. Prerender instead of Runtime SSR
+GitHub Pages is static. We use `RenderMode.Prerender` so every route ships as real HTML. Google sees full content without executing JS.
+
+### 2. Route-Level Metadata
+Each route carries its own `title` and `data.description`. Canonical, OG, and JSON-LD are declared once in `index.html`.
+
+### 3. Lazy Loading Per Page
+Each page is loaded via `loadComponent`. Build output shows one chunk per route (`home-component`, `about-component`, etc.) — initial bundle stays small.
+
+### 4. Stable Base URL
+Served from `/Angular-Core-SPA/`. Setting `baseHref` plus a hash-URL shim keeps deep links resolving correctly.
+
+### 5. Verified Deploys
+GitHub Actions uses official Pages actions with a **Verify prerendered output** step that fails the build if any route is missing.
+
+---
+
+## 🚀 Local Development
 
 ```bash
 npm install
 npm start          # ng serve → http://localhost:4200
 ```
 
-## 📦 Build & deploy
+## 📦 Build & Deploy
 
 ```bash
 npm run build      # produces dist/angular-core-spa/browser/ with prerendered routes
@@ -153,13 +115,17 @@ Deployment is automatic: push to `main` triggers the GitHub Actions workflow.
 
 ## 👤 Author
 
-**Ongun Akay** — Cloud Engineer
-Google Cloud · AI/LLM · GKE & Cloud Run
+<div align="center">
 
-- Website: https://ongunakay.com
-- GitHub: [@ongunakaycom](https://github.com/ongunakaycom)
-- LinkedIn: [in/ongunakay](https://linkedin.com/in/ongunakay)
-- Email: info@ongunakay.com
+**Ongun Akay** — Cloud Engineer
+*Google Cloud · AI/LLM · GKE & Cloud Run*
+
+[![Website](https://img.shields.io/badge/Website-ongunakay.com-000000?style=flat-square&logo=google-chrome)](https://ongunakay.com)
+[![GitHub](https://img.shields.io/badge/GitHub-ongunakaycom-181717?style=flat-square&logo=github)](https://github.com/ongunakaycom)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ongunakay-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/ongunakay)
+[![Email](https://img.shields.io/badge/Email-info@ongunakay.com-EA4335?style=flat-square&logo=gmail)](mailto:info@ongunakay.com)
+
+</div>
 
 ---
 
