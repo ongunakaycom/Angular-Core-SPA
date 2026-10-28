@@ -1,13 +1,15 @@
+<div align="center">
+
 # ☁️ Angular Core SPA — Cloud Engineer Portfolio
 
-**A production portfolio site built with Angular 19, SSR, and build-time prerendering.**
-
-[![Live Demo](https://img.shields.io/badge/Live_Demo-ongunakaycom.github.io-blue)](https://ongunakaycom.github.io/Angular-Core-SPA/)
+[![Deploy to GitHub Pages](https://github.com/ongunakaycom/Angular-Core-SPA/actions/workflows/deploy.yml/badge.svg)](https://github.com/ongunakaycom/Angular-Core-SPA/actions/workflows/deploy.yml)
 [![Angular](https://img.shields.io/badge/Angular-19-DD0031?logo=angular&logoColor=white)](https://angular.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![Deploy](https://img.shields.io/badge/Deploy-GitHub_Pages-222?logo=githubactions&logoColor=white)](https://github.com/ongunakaycom/Angular-Core-SPA/actions)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
+[![GH Pages](https://img.shields.io/badge/GH_Pages-Live-222?logo=github&logoColor=white)](https://ongunakaycom.github.io/Angular-Core-SPA/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+A production portfolio site built with Angular 19, SSR, and build-time prerendering.
 
 </div>
 
