@@ -1,14 +1,13 @@
 # ☁️ Angular Core SPA — Cloud Engineer Portfolio
 
-**A production-grade portfolio built with Angular 19, SSR, and build-time prerendering.** 
-*Engineered for SEO, zero-cost hosting, and cloud-native frontend architecture.*
+**A production portfolio site built with Angular 19, SSR, and build-time prerendering.**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-ongunakaycom.github.io-blue?style=for-the-badge&logo=github)](https://ongunakaycom.github.io/Angular-Core-SPA/)
-[![Angular](https://img.shields.io/badge/Angular-19-DD0031?style=for-the-badge&logo=angular)](https://angular.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
-[![Deploy](https://img.shields.io/badge/Deploy-GitHub_Pages-222?style=for-the-badge&logo=githubactions)](https://github.com/ongunakaycom/Angular-Core-SPA/actions)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](./LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-ongunakaycom.github.io-blue)](https://ongunakaycom.github.io/Angular-Core-SPA/)
+[![Angular](https://img.shields.io/badge/Angular-19-DD0031?logo=angular&logoColor=white)](https://angular.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub_Pages-222?logo=githubactions&logoColor=white)](https://github.com/ongunakaycom/Angular-Core-SPA/actions)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
 
 </div>
 
